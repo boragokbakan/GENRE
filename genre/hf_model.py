@@ -26,6 +26,7 @@ class _GENREHubInterface:
         sentences: List[str],
         num_beams: int = 5,
         num_return_sequences=5,
+        max_length: int = 1024,
         text_to_id: Dict[str, str] = None,
         marginalize: bool = False,
         **kwargs
@@ -41,7 +42,7 @@ class _GENREHubInterface:
         outputs = self.generate(
             **input_args,
             min_length=0,
-            max_length=1024,
+            max_length=max_length,
             num_beams=num_beams,
             num_return_sequences=num_return_sequences,
             output_scores=True,
